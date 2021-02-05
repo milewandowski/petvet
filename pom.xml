@@ -54,6 +54,12 @@
       <version>${hibernate.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>7.0.0.Final</version>
+    </dependency>
+
     <!--  MySQL  -->
 
     <dependency>
