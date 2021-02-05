@@ -76,12 +76,12 @@
       <version>${jackson.version}</version>
     </dependency>
 
-    <!--  c3p0  -->
+    <!--  HikariCp  -->
 
     <dependency>
-      <groupId>com.mchange</groupId>
-      <artifactId>c3p0</artifactId>
-      <version>0.9.5.5</version>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-hikaricp</artifactId>
+      <version>5.4.27.Final</version>
     </dependency>
 
     <!--  Servlet & JSP & JSTL  -->
