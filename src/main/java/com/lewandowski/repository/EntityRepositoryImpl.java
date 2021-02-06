@@ -16,12 +16,11 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 public abstract class EntityRepositoryImpl<E> implements EntityRepository<E> {
 
-    private final SessionFactory sessionFactory;
+    @Autowired
+    private SessionFactory sessionFactory;
     private final Class<E> entityClass;
 
-    @Autowired
-    public EntityRepositoryImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    public EntityRepositoryImpl() {
         this.entityClass = (Class<E>) ((ParameterizedType) this.getClass().getGenericSuperclass())
                 .getActualTypeArguments()[0];
     }
