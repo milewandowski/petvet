@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{fragments/layout :: layout(~{::main})}"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<main>
+
+    <h1>Login</h1>
+
+    <form th:action="@{/authenticateTheUser}" method="post" >
+
+        <div class="form-group">
+            <div class="col-xs-15">
+                <div>
+
+                    <div th:if="${param.error}" class="alert alert-danger col-xs-offset-1 col-xs-10">
+                        Invalid username and password.
+                    </div>
+
+                    <div th:if="${param.logout}" class="alert alert-success col-xs-offset-1 col-xs-10">
+                        You have been logged out.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="usernameInput">Username</label>
+            <input type="text" name="username" class="form-control" id="usernameInput" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+            <label for="passwordInput">Password</label>
+            <input type="password" name="password" class="form-control" id="passwordInput" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+    </form>
+
+</main>
+</body>
+</html>

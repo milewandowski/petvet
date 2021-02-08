@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" th:fragment="layout (content)" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th:fragment="layout (content)" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -17,7 +18,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Petvet</a>
+        <a class="navbar-brand" th:href="@{/}">Petvet</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,11 +31,16 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/vets}">Vets</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                <li sec:authorize="not isAuthenticated()" class="nav-item">
+                    <a class="nav-link" th:href="@{/showLoginPage}">Login</a>
                 </li>
-                <li class="nav-item">
+                <li sec:authorize="not isAuthenticated()" class="nav-item">
                     <a class="nav-link" href="#">Register</a>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+                        <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                    </form>
                 </li>
             </ul>
         </div>
