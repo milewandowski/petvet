@@ -21,7 +21,7 @@ public class Pet extends NamedEntity {
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "owner_id")
-    private Owner owner;
+    private User user;
 
     @OneToMany(mappedBy = "pet", cascade = {CascadeType.ALL})
     private List<Appointment> appointments;
@@ -37,12 +37,12 @@ public class Pet extends NamedEntity {
         this.appointments = appointments;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public User getUser() {
+        return user;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Species getSpecies() {
