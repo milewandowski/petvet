@@ -32,10 +32,10 @@
                     <a class="nav-link" th:href="@{/vet/list}">Vets</a>
                 </li>
                 <li sec:authorize="not isAuthenticated()" class="nav-item">
-                    <a class="nav-link" th:href="@{/loginPage}">Login</a>
+                    <a class="nav-link" th:href="@{/login}">Login</a>
                 </li>
                 <li sec:authorize="not isAuthenticated()" class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link" th:href="@{/register}">Register</a>
                 </li>
                 <li sec:authorize="isAuthenticated()">
                     <form th:action="@{/logout}" method="post">
