@@ -20,7 +20,7 @@ public class Pet extends NamedEntity {
     private Species species;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "owner_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @OneToMany(mappedBy = "pet", cascade = {CascadeType.ALL})

@@ -23,19 +23,11 @@ public class User extends Person {
     @NotEmpty
     private String email;
 
-    @Column(name = "address")
-    @NotEmpty
-    private String address;
-
-    @Column(name = "city")
-    @NotEmpty
-    private String city;
-
     @Column(name = "phone_number")
     @NotEmpty
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "owner", cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
     private Set<Pet> pets;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -63,22 +55,6 @@ public class User extends Person {
 
     public void setPets(Set<Pet> pets) {
         this.pets = pets;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getPhoneNumber() {

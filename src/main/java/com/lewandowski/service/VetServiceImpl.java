@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class VetServiceImpl implements VetService {
 
     private final VetRepository vetRepository;
@@ -17,7 +18,6 @@ public class VetServiceImpl implements VetService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public List<Vet> getAllVetsList() {
         return vetRepository.findAll();
     }
