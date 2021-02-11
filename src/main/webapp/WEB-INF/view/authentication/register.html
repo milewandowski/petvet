@@ -8,23 +8,17 @@
     <form th:action="@{/processRegistrationForm}"
           th:object="${userValidator}" method="post">
 
-        <!-- Place for messages: error, alert etc ... -->
         <div class="form-group">
             <div class="col-xs-15">
                 <div>
-
-                    <!-- Check for registration error -->
                     <div th:if="${registrationError}" class="alert alert-danger col-xs-offset-1 col-xs-10">
                         <span th:text="${registrationError}"></span>
                     </div>
-
                 </div>
             </div>
         </div>
 
-        <!-- User name -->
         <div class="form-group">
-<!--            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>-->
             <input type="text" th:field="*{username}" placeholder="Username" class="form-control" />
         </div>
 
@@ -34,10 +28,7 @@
             </ul>
         </div>
 
-
-        <!-- Password -->
         <div class="form-group">
-<!--            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>-->
             <input type="password" th:field="*{password}" placeholder="Password" class="form-control" th:errorclass="fieldError" />
         </div>
         <div th:if="${#fields.hasErrors('password')}" class="text-danger">
@@ -46,9 +37,7 @@
             </ul>
         </div>
 
-        <!-- Confirm Password -->
         <div class="form-group">
-<!--            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>-->
             <input type="password" th:field="*{matchingPassword}" placeholder="Confirm password" class="form-control" th:errorclass="fieldError" />
         </div>
         <div th:if="${#fields.hasErrors('matchingPassword')}" class="text-danger">
@@ -57,10 +46,7 @@
             </ul>
         </div>
 
-
-        <!-- First name -->
         <div class="form-group">
-<!--            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>-->
             <input type="text" th:field="*{firstName}" placeholder="First name" class="form-control" th:errorclass="fieldError" />
         </div>
         <div th:if="${#fields.hasErrors('firstName')}" class="text-danger">
@@ -69,9 +55,7 @@
             </ul>
         </div>
 
-        <!-- Last name -->
         <div class="form-group">
-<!--            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>-->
             <input type="text" th:field="*{lastName}" placeholder="Last name" class="form-control" th:errorclass="fieldError" />
         </div>
         <div th:if="${#fields.hasErrors('lastName')}" class="text-danger">
@@ -80,9 +64,7 @@
             </ul>
         </div>
 
-        <!-- Email -->
         <div class="form-group">
-<!--            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>-->
             <input type="email" th:field="*{email}" placeholder="Email" class="form-control" th:errorclass="fieldError" />
         </div>
         <div th:if="${#fields.hasErrors('email')}" class="text-danger">

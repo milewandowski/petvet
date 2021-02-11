@@ -12,19 +12,26 @@
         </div>
     </div>
     <div class="container">
-        <h2 class="row">Your pets</h2>
+        <h2 class="row">Your pets <a th:href="@{/pet/new}" class="btn btn-primary">Add pet</a>
+        </h2>
         <div class="row">
-            <div th:if="${loggedUser.pets.isEmpty()}">No Pets Found</div>
-            <div th:each="pet : ${loggedUser.pets}" class="col-3 card border-secondary mb-3">
-                <div class="card-header"><h5 th:text="${pet.name}"></h5></div>
-                <div class="card-body text-secondary">
-                    <p class="card-title">Species: <span th:text="${pet.species.name}"></span></p>
-                    <p class="card-text">Birth date: <span th:text="${pet.birthDate}"></span></p>
+            <div th:each="pet : ${loggedUser.pets}" class="col-lg-4 pb-5">
+                <div th:if="${loggedUser.pets.isEmpty()}">No Pets Found</div>
+                <div class="card bg-secondary text-white text-center">
+                    <div class="card-header"><h5 th:text="${pet.name}"></h5></div>
+                    <div class="card-body">
+                        <p class="card-title">Species: <span th:text="${pet.species.name}"></span></p>
+                        <p class="card-text">Birth date: <span th:text="${pet.birthDate}"></span></p>
+                        <a href="#" class="card-text btn btn-link">Appointments</a>
+                        <a th:href="@{/pet/delete/{id}(id=${pet.id})}" class="card-text btn btn-link">Remove</a>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">Set an appointment</a>
+                    </div>
                 </div>
             </div>
-
-            </div>
         </div>
+    </div>
 
 </main>
 </body>

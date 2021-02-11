@@ -19,7 +19,7 @@ import javax.validation.Valid;
 @Controller
 public class RegistrationController {
 
-    private static final String REGISTRATION_FORM = "authentication/register";
+    private static final String VIEW_REGISTRATION_FORM = "authentication/register";
 
     private UserService userService;
 
@@ -35,10 +35,10 @@ public class RegistrationController {
     }
 
     @GetMapping("/register")
-    public String showRegistrationPage(Model model) {
+    public String showRegistrationForm(Model model) {
         model.addAttribute("userValidator", new UserValidator());
 
-        return REGISTRATION_FORM;
+        return VIEW_REGISTRATION_FORM;
     }
 
     @PostMapping("/processRegistrationForm")
@@ -48,7 +48,7 @@ public class RegistrationController {
             Model model) {
 
         if(bindingResult.hasErrors()) {
-            return REGISTRATION_FORM;
+            return VIEW_REGISTRATION_FORM;
         }
 
         User existingUser = userService.findUserByUsername(userValidator.getUsername());
@@ -56,7 +56,7 @@ public class RegistrationController {
             model.addAttribute("userValidator", new UserValidator());
             model.addAttribute("registrationError", "Username already exists");
 
-            return REGISTRATION_FORM;
+            return VIEW_REGISTRATION_FORM;
         }
 
         userService.save(userValidator);
