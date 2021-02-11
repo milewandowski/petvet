@@ -15,7 +15,7 @@ public class Pet extends NamedEntity {
     @DateTimeFormat(pattern = "yyyy-mm-dd")
     private LocalDate birthDate;
 
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "species_id")
     private Species species;
 
@@ -23,7 +23,7 @@ public class Pet extends NamedEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "pet", cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pet", cascade = {CascadeType.ALL})
     private List<Appointment> appointments;
 
     public List<Appointment> getAppointments() {

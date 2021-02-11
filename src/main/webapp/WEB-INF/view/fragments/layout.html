@@ -31,6 +31,9 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/vet/list}">Vets</a>
                 </li>
+                <li sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/user/profile}">My Profile</a>
+                </li>
                 <li sec:authorize="not isAuthenticated()" class="nav-item">
                     <a class="nav-link" th:href="@{/login}">Login</a>
                 </li>

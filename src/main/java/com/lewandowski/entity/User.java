@@ -27,7 +27,7 @@ public class User extends Person {
     @NotEmpty
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = {CascadeType.ALL})
     private Set<Pet> pets;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
