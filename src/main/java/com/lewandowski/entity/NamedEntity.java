@@ -1,6 +1,6 @@
 package com.lewandowski.entity;
 
-import jakarta.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;

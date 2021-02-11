@@ -1,9 +1,10 @@
 package com.lewandowski.entity;
 
-import jakarta.validation.constraints.NotEmpty;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @Entity

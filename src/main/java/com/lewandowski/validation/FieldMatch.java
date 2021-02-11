@@ -1,8 +1,7 @@
 package com.lewandowski.validation;
 
-import jakarta.validation.Constraint;
-import jakarta.validation.Payload;
-
+import javax.validation.Constraint;
+import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Constraint(validatedBy = FieldMatchValidator.class)

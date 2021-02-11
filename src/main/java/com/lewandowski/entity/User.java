@@ -1,8 +1,8 @@
 package com.lewandowski.entity;
 
-import jakarta.validation.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;

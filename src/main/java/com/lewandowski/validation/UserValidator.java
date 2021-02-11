@@ -1,44 +1,43 @@
 package com.lewandowski.validation;
 
-
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @FieldMatch.List({
         @FieldMatch(first = "password", second = "matchingPassword", message = "The password fields must match")
 })
 public class UserValidator {
 
-    private static final String REQUIRED = "is required";
+    private static final String REQUIRED = " is required";
 
-    @NotEmpty(message = REQUIRED)
+    @NotEmpty(message = "Username" + REQUIRED)
     @Size(min = 4, max = 80, message = "Username must be between 4 and 80 characters")
     private String username;
 
-    @NotEmpty(message = REQUIRED)
+    @NotEmpty(message = "Password" + REQUIRED)
     @Size(min = 4, max = 80, message = "Password must be between 4 and 80 characters")
     private String password;
 
-    @NotEmpty(message = REQUIRED)
+    @NotEmpty(message = "Confirm password" + REQUIRED)
     @Size(min = 4, max = 80, message = "Password must be between 4 and 80 characters")
     private String matchingPassword;
 
-    @NotEmpty(message = REQUIRED)
+    @NotEmpty(message = "First name" + REQUIRED)
     @Size(min = 1, max = 40, message = "First name must be between 1 and 40 characters")
     private String firstName;
 
-    @NotEmpty(message = REQUIRED)
+    @NotEmpty(message = "Last name" + REQUIRED)
     @Size(min = 1, max = 40, message = "Last name must be between 1 and 40 characters")
     private String lastName;
 
-    @NotEmpty(message = REQUIRED)
+    @NotEmpty(message = "Email" + REQUIRED)
     @Email(message = "Must be an email")
     private String email;
 
-    @NotEmpty(message = REQUIRED)
-    @Digits(fraction = 0, integer = 13, message = "Must be phone number")
+    @NotEmpty(message = "Phone number" + REQUIRED)
+    @Digits(fraction = 0, integer = 13, message = "Must be a phone number")
     private String phoneNumber;
 
     public String getUsername() {
