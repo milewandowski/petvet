@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{fragments/layout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+<body>
+<main>
+
+    <h1><span th:text="${pet.name}"></span> - appointments</h1>
+
+    <div class="container">
+        <div class="row">
+            <div th:each="app : ${appointments}" class="col-lg-4 pb-5">
+                <div th:if="${appointments.isEmpty()}">No Appointments Found</div>
+                <div class="card bg-secondary text-white text-center">
+                    <div class="card-header"><h5 th:text="${app.appointmentDate}"></h5></div>
+                    <div class="card-body">
+                        <p class="card-text" th:text="${app.description}"></p>
+                    </div>
+                    <div class="card-footer">
+                        <a th:href="@{/appointment/delete/{id}/{petId}(id=${app.id}, petId=${pet.id})}" class="btn btn-danger">Cancel Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+</body>
+</html>

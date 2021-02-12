@@ -22,8 +22,8 @@
                     <div class="card-body">
                         <p class="card-title">Species: <span th:text="${pet.species.name}"></span></p>
                         <p class="card-text">Birth date: <span th:text="${pet.birthDate}"></span></p>
-                        <a href="#" class="card-text btn btn-link">Appointments</a>
-                        <a th:href="@{/pet/delete/{id}(id=${pet.id})}" class="card-text btn btn-link">Remove</a>
+                        <a th:href="@{/appointment/list/{id}(id=${pet.id})}" class="card-text text-info btn btn-link">Appointments</a>
+                        <a th:href="@{/pet/delete/{id}(id=${pet.id})}" class="card-text text-info btn btn-link">Remove</a>
                     </div>
                     <div class="card-footer">
                         <a th:href="@{/appointment/new/{id}(id=${pet.id})}" class="btn btn-primary">Set an appointment</a>
