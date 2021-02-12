@@ -26,7 +26,7 @@
                         <a th:href="@{/pet/delete/{id}(id=${pet.id})}" class="card-text btn btn-link">Remove</a>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Set an appointment</a>
+                        <a th:href="@{/appointment/new/{id}(id=${pet.id})}" class="btn btn-primary">Set an appointment</a>
                     </div>
                 </div>
             </div>

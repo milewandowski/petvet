@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Appointment extends BaseEntity {
 
     @Column(name = "appointment_date")
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate appointmentDate;
 
     @Column(name = "description")
