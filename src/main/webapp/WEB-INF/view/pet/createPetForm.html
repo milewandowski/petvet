@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{fragments/layout :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+<body>
+<main>
+
+    <h1>Add pet</h1>
+
+    <form th:action="@{/pet/processPetForm}" th:object="${pet}" method="post">
+
+        <div class="form-group">
+            <div th:if="${existsError}" class="col-xs-15 alert alert-danger col-xs-offset-1 col-xs-10">
+                <span th:text="${existsError}"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" th:field="*{name}" placeholder="Name" class="form-control">
+        </div>
+
+        <div th:if="${#fields.hasErrors('name')}" class="text-danger">
+            <ul>
+                <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <select th:field="*{species.id}" class="form-control">
+                <option th:each="s : ${species}"
+                        th:value="${s.id}"
+                        th:text="${s}">
+                    Species
+                </option>
+            </select>
+        </div>
+
+        <div th:if="${#fields.hasErrors('species')}" class="text-danger">
+            <ul>
+                <li th:each="err : ${#fields.errors('species')}" th:text="${err}"></li>
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <input type="date" th:field="*{birthDate}" placeholder="Birth date" class="form-control">
+        </div>
+
+        <div th:if="${#fields.errors('birthDate')}" class="text-danger">
+            <ul>
+                <li th:each="err : ${#fields.errors('birthDate')}" th:text="${err}"></li>
+            </ul>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add</button>
+
+    </form>
+
+</main>
+</body>
+</html>

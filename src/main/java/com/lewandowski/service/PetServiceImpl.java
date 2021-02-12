@@ -27,4 +27,16 @@ public class PetServiceImpl implements PetService {
     public void delete(Pet pet) {
         petRepository.delete(pet);
     }
+
+    @Override
+    @Transactional
+    public Pet findByName(String name) {
+        return petRepository.findByName(name);
+    }
+
+    @Override
+    @Transactional
+    public void save(Pet pet) {
+        petRepository.saveOrUpdate(pet);
+    }
 }
