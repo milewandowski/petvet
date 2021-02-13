@@ -3,9 +3,9 @@
 
 <body>
 <main>
-    <div>
-        <h1>Profile</h1>
-        <div>
+    <div class="pad-left">
+        <h1 class="pb-3">Profile</h1>
+        <div class="table-width">
             <table class="table">
                 <tbody>
                 <tr>
@@ -14,23 +14,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Phone number:</td>
-                    <td><span th:text="${loggedUser.phoneNumber}"></span></td>
-                </tr>
-                <tr>
                     <td>Email:</td>
                     <td><span th:text="${loggedUser.email}"></span></td>
                 </tr>
+                <tr>
+                    <td>Phone number:</td>
+                    <td><span th:text="${loggedUser.phoneNumber}"></span></td>
+                </tr>
                 </tbody>
             </table>
-            <!--            <p>Name: <span th:text="${loggedUser.firstName}"></span> <span th:text="${loggedUser.lastName}"></span></p>-->
-            <!--            <p>Phone number: <span th:text="${loggedUser.phoneNumber}"></span></p>-->
-            <!--            <p>Email: <span th:text="${loggedUser.email}"></span></p>-->
         </div>
     </div>
     <div class="container">
-        <h2 class="row">Your pets <a th:href="@{/pet/new}" class="btn btn-info">Add pet</a>
-        </h2>
+        <h2 class="row d-inline-block mr-4 my-4 pets-headline">Your pets</h2>
+        <a th:href="@{/pet/new}" class="btn btn-info my-4">Add pet</a>
         <div class="row">
             <div th:each="pet : ${loggedUser.pets}" class="col-lg-4 pb-5">
                 <div th:if="${loggedUser.pets.isEmpty()}">No Pets Found</div>
@@ -69,7 +66,7 @@
 
                     </div>
                     <div class="card-footer">
-                        <a th:href="@{/appointment/new/{id}(id=${pet.id})}" class="btn btn-info">Set an appointment</a>
+                        <a th:href="@{/appointment/new/{id}(id=${pet.id})}" class="btn btn-info">Set appointment</a>
                     </div>
                 </div>
             </div>

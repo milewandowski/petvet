@@ -3,10 +3,10 @@
 <body>
 <main>
 
-    <h1>Register</h1>
+    <h1 class="text-center pb-3">Create your account</h1>
 
     <form th:action="@{/processRegistrationForm}"
-          th:object="${userValidator}" method="post">
+          th:object="${userValidator}" method="post" class="form-width mx-auto">
 
         <div class="form-group">
             <div class="col-xs-15">
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-4">
             <input type="text" th:field="*{username}" placeholder="Username" class="form-control" />
         </div>
 
@@ -28,7 +28,7 @@
             </ul>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-4">
             <input type="password" th:field="*{password}" placeholder="Password" class="form-control" th:errorclass="fieldError" />
         </div>
         <div th:if="${#fields.hasErrors('password')}" class="text-danger">
@@ -37,7 +37,7 @@
             </ul>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-4">
             <input type="password" th:field="*{matchingPassword}" placeholder="Confirm password" class="form-control" th:errorclass="fieldError" />
         </div>
         <div th:if="${#fields.hasErrors('matchingPassword')}" class="text-danger">
@@ -46,7 +46,7 @@
             </ul>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-4">
             <input type="text" th:field="*{firstName}" placeholder="First name" class="form-control" th:errorclass="fieldError" />
         </div>
         <div th:if="${#fields.hasErrors('firstName')}" class="text-danger">
@@ -55,7 +55,7 @@
             </ul>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-4">
             <input type="text" th:field="*{lastName}" placeholder="Last name" class="form-control" th:errorclass="fieldError" />
         </div>
         <div th:if="${#fields.hasErrors('lastName')}" class="text-danger">
@@ -64,7 +64,7 @@
             </ul>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-4">
             <input type="email" th:field="*{email}" placeholder="Email" class="form-control" th:errorclass="fieldError" />
         </div>
         <div th:if="${#fields.hasErrors('email')}" class="text-danger">
@@ -73,7 +73,7 @@
             </ul>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-4">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" class="form-control" th:errorclass="fieldError" />
         </div>
@@ -83,7 +83,7 @@
             </ul>
         </div>
 
-        <button type="submit" class="btn btn-info">Register</button>
+        <button type="submit" class="btn btn-info form-width mb-5">Create account</button>
 
     </form>
 
