@@ -10,7 +10,8 @@
                 <tbody>
                 <tr>
                     <td>Name:</td>
-                    <td><span th:text="${loggedUser.firstName}"></span> <span th:text="${loggedUser.lastName}"></span></td>
+                    <td><span th:text="${loggedUser.firstName}"></span> <span th:text="${loggedUser.lastName}"></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Phone number:</td>
@@ -22,9 +23,9 @@
                 </tr>
                 </tbody>
             </table>
-<!--            <p>Name: <span th:text="${loggedUser.firstName}"></span> <span th:text="${loggedUser.lastName}"></span></p>-->
-<!--            <p>Phone number: <span th:text="${loggedUser.phoneNumber}"></span></p>-->
-<!--            <p>Email: <span th:text="${loggedUser.email}"></span></p>-->
+            <!--            <p>Name: <span th:text="${loggedUser.firstName}"></span> <span th:text="${loggedUser.lastName}"></span></p>-->
+            <!--            <p>Phone number: <span th:text="${loggedUser.phoneNumber}"></span></p>-->
+            <!--            <p>Email: <span th:text="${loggedUser.email}"></span></p>-->
         </div>
     </div>
     <div class="container">
@@ -39,7 +40,33 @@
                         <p class="card-title">Species: <span th:text="${pet.species.name}"></span></p>
                         <p class="card-text">Birth date: <span th:text="${pet.birthDate}"></span></p>
                         <a th:href="@{/appointment/list/{id}(id=${pet.id})}" class="card-text text-info btn btn-link">Appointments</a>
-                        <a th:href="@{/pet/delete/{id}(id=${pet.id})}" class="card-text text-info btn btn-link">Remove</a>
+
+                        <a class="card-text text-info btn btn-link"
+                           data-toggle="modal" data-target="#modal-warning"
+                           th:attr="data-target='#modal-warning' + ${pet.id}">Remove</a>
+
+                        <div class="modal fade" tabindex="-1" role="dialog" th:id="modal-warning+${pet.id}">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-dark">Remove Pet</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="text-dark float-left">Are you sure you want to remove this pet?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <a type="button" class="btn btn-info"
+                                           th:href="@{/pet/delete/{id}(id=${pet.id})}">Yes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="card-footer">
                         <a th:href="@{/appointment/new/{id}(id=${pet.id})}" class="btn btn-info">Set an appointment</a>
