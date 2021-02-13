@@ -11,8 +11,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Petvet</title>
+    <style>
+        .fot {
+            padding-top: 20px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            line-height: 0.5;
+            color: rgba(255,255,255,.5);
+            background-color: #343a40;
+        }
 
+        body {
+            margin-bottom: 50px;
+        }
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+    </style>
+
+    <title>Petvet</title>
 </head>
 <body>
 
@@ -55,6 +75,19 @@
     <main th:replace="${content}"></main>
 
 </div>
+
+<footer class="footer fixed-bottom fot">
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col">
+                <p> Copyrights &copy; 2021</p>
+            </div>
+            <div class="col">
+                <p>Michal Lewandowski</p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
