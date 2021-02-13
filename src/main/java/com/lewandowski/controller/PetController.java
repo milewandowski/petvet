@@ -55,12 +55,14 @@ public class PetController {
             Model model) {
 
         if(bindingResult.hasErrors()) {
+            model.addAttribute("species", speciesService.findAll());
             return VIEW_CREATE_OR_UPDATE_FORM;
         }
 
         Pet existing = petService.findByName(pet.getName());
 
         if(existing != null) {
+            model.addAttribute("species", speciesService.findAll());
             model.addAttribute("existsError", "Pet already exists");
             return VIEW_CREATE_OR_UPDATE_FORM;
         }

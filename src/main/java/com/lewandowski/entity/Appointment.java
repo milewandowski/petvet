@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -13,6 +14,7 @@ public class Appointment extends BaseEntity {
 
     @Column(name = "appointment_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull(message = "must not be empty")
     private LocalDate appointmentDate;
 
     @Column(name = "description")
