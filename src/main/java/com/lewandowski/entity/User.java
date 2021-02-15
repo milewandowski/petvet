@@ -3,9 +3,8 @@ package com.lewandowski.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "user")
@@ -46,15 +45,22 @@ public class User extends Person {
         pet.setUser(this);
     }
 
-    public Set<Pet> getPets() {
+    protected Set<Pet> getPetsInternally() {
         if(pets == null) {
             pets = new HashSet<>();
         }
         return pets;
     }
 
-    public void setPets(Set<Pet> pets) {
+    protected void setPets(Set<Pet> pets) {
         this.pets = pets;
+    }
+
+    public List<Pet> getPets() {
+
+        return getPetsInternally().stream()
+                .sorted(Comparator.comparing(NamedEntity::getName))
+                .collect(Collectors.toList());
     }
 
     public String getPhoneNumber() {

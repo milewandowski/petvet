@@ -29,7 +29,7 @@
         <h2 class="row d-inline-block mr-4 my-4 pets-headline">Your pets</h2>
         <a th:href="@{/pet/new}" class="btn btn-info my-4">Add pet</a>
         <div class="row">
-            <div th:each="pet : ${loggedUser.pets}" class="col-lg-4 pb-5">
+            <div th:each="pet : ${loggedUser.getPets()}" class="col-lg-4 pb-5">
                 <div th:if="${loggedUser.pets.isEmpty()}">No Pets Found</div>
                 <div class="card bg-secondary text-white text-center">
                     <div class="card-header"><h5 th:text="${pet.name}"></h5></div>
