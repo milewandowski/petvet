@@ -1,6 +1,7 @@
-package com.lewandowski.repository;
+package com.lewandowski.repository.impl;
 
 import com.lewandowski.entity.Appointment;
+import com.lewandowski.repository.AppointmentRepository;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 

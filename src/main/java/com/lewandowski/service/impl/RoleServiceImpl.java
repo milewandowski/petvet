@@ -1,7 +1,8 @@
-package com.lewandowski.service;
+package com.lewandowski.service.impl;
 
 import com.lewandowski.entity.Role;
 import com.lewandowski.repository.RoleRepository;
+import com.lewandowski.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

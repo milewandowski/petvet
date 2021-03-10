@@ -1,6 +1,7 @@
-package com.lewandowski.repository;
+package com.lewandowski.repository.impl;
 
 import com.lewandowski.entity.Speciality;
+import com.lewandowski.repository.SpecialityRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository

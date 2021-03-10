@@ -1,7 +1,8 @@
-package com.lewandowski.service;
+package com.lewandowski.service.impl;
 
 import com.lewandowski.entity.Vet;
 import com.lewandowski.repository.VetRepository;
+import com.lewandowski.service.VetService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

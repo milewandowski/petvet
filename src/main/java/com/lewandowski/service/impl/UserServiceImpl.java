@@ -1,9 +1,10 @@
-package com.lewandowski.service;
+package com.lewandowski.service.impl;
 
 import com.lewandowski.entity.Role;
 import com.lewandowski.entity.User;
 import com.lewandowski.repository.RoleRepository;
 import com.lewandowski.repository.UserRepository;
+import com.lewandowski.service.UserService;
 import com.lewandowski.validation.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,6 +1,7 @@
-package com.lewandowski.repository;
+package com.lewandowski.repository.impl;
 
 import com.lewandowski.entity.User;
+import com.lewandowski.repository.UserRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.CriteriaBuilder;

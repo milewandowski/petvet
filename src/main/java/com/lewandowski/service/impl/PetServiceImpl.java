@@ -1,7 +1,8 @@
-package com.lewandowski.service;
+package com.lewandowski.service.impl;
 
 import com.lewandowski.entity.Pet;
 import com.lewandowski.repository.PetRepository;
+import com.lewandowski.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

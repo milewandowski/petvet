@@ -1,6 +1,7 @@
-package com.lewandowski.repository;
+package com.lewandowski.repository.impl;
 
 import com.lewandowski.entity.Pet;
+import com.lewandowski.repository.PetRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.CriteriaBuilder;

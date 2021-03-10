@@ -1,5 +1,6 @@
-package com.lewandowski.repository;
+package com.lewandowski.repository.impl;
 
+import com.lewandowski.repository.EntityRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
